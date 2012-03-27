@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+def windows(ctx):
+    print('build windows')
+
+def mac(ctx):
+    print('build mac')
+
+def linux(ctx):
+    print('build linux')
+

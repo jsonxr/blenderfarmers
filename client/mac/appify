@@ -1,0 +1,80 @@
+# Create app from python
+mkdir build
+mkdir dist
+
+################################################################################
+# Create the build/app/BlenderFarmers.app
+################################################################################
+python setup.py py2app --bdist-base build --dist-dir dist
+
+################################################################################
+# Create the package
+################################################################################
+packagemaker --id com.blenderfarmers.BlenderFarmers --doc BlenderFarmers.pmdoc --out dist/BlenderFarmers.pkg
+
+################################################################################
+# Create the dmg file
+################################################################################
+cp -R dmg build
+cp dist/BlenderFarmers.pkg build/dmg
+
+#http://stackoverflow.com/questions/96882/how-do-i-create-a-nice-looking-dmg-for-mac-os-x-using-command-line-tools
+
+
+################################################################################
+# Create the RW temporary image
+# It create's a 100,000k (roughly 100Mb) disk to copy files to.
+# If the app gets too big, this might need to be increased
+################################################################################
+hdiutil create -srcfolder build/dmg -volname BlenderFarmers -fs HFS+ -fsargs "-c c=64,a=16,e=16" -format UDRW -size 100000k build/temp.dmg
+
+################################################################################
+# Set background, window decorations, etc
+################################################################################
+device=$(hdiutil attach -readwrite -noverify -noautoopen "build/temp.dmg" | egrep '^/dev/' | sed 1q | awk '{print $1}')
+echo '
+   tell application "Finder"
+     tell disk "BlenderFarmers"
+           open
+           set current view of container window to icon view
+           set toolbar visible of container window to false
+           set statusbar visible of container window to false
+           set the bounds of container window to {400, 100, 885, 460}
+           set theViewOptions to the icon view options of container window
+           set arrangement of theViewOptions to not arranged
+           set icon size of theViewOptions to 72
+           set position of item "BlenderFarmers.pkg" of container window to {244, 225}
+           set position of item "License.txt" of container window to {86, 255}
+           set position of item "Readme.txt" of container window to {402, 255}
+           set background picture of theViewOptions to file ".background/background.png"
+           update without registering applications
+           eject
+     end tell
+   end tell
+' | osascript
+
+################################################################################
+# Some bug is causing the position setting of the icons to not take
+################################################################################
+device=$(hdiutil attach -readwrite -noverify -noautoopen "build/temp.dmg" | egrep '^/dev/' | sed 1q | awk '{print $1}')
+echo '
+   tell application "Finder"
+       tell disk "BlenderFarmers"
+           open
+           set position of item "BlenderFarmers.pkg" of container window to {244, 225}
+           set position of item "License.txt" of container window to {86, 255}
+           set position of item "Readme.txt" of container window to {402, 255}
+           update without registering applications
+       end tell
+   end tell
+' | osascript
+
+################################################################################
+# Finalize
+################################################################################
+mkdir dist
+sudo chmod -Rf go-w /Volumes/BlenderFarmers
+sync
+hdiutil detach ${device}
+hdiutil convert "build/temp.dmg" -format UDZO -imagekey zlib-level=9 -o "dist/BlenderFarmers.dmg"
+rm -f build/temp.dmg
