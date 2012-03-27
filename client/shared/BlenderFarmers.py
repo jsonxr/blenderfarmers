@@ -1,3 +1,5 @@
+#!python
+
 import wx
 from wx import xrc
 import pkg_resources
