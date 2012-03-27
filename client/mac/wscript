@@ -1,0 +1,9 @@
+from waflib.Task import Task
+
+def build(ctx):
+    print 'Build mac application - BlenderFarmers.app'
+    env_mac = ctx.env.derive()
+    env_mac.PREFIX = ctx.path.abspath()
+    
+    #ctx(rule='python ${PREFIX}/setup.py py2app --bdist-base . --dist-dir mac --iconfile ${PREFIX}/BlenderFarmers.icns', source='../shared/BlenderFarmers.py', target='BlenderFarmers.app', env=env_mac)
+#

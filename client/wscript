@@ -1,12 +1,35 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-def windows(ctx):
-    print('build windows')
+#
+# For documentation on waf, see:
+# http://code.google.com/p/waf/
+# http://docs.waf.googlecode.com/git/book_16/single.html
+#
+import platform
+import re
 
-def mac(ctx):
-    print('build mac')
+APPNAME = 'BlenderFarmers'
+VERSION = '1.0'
 
-def linux(ctx):
-    print('build linux')
+top = '.'
+out = 'build'
 
+def configure(ctx):
+    ctx.check_waf_version(mini='1.6.11')
+    ctx.find_program('touch', var='TOUCH')
+    print('→ configuring the project in ' + ctx.path.abspath())
+    print ctx.env
+
+def build(ctx):
+    ctx(rule='cp ${SRC} ${TGT}', source='jason.txt', target='foo.txt')
+    ctx(rule='cp ${SRC} ${TGT}', source='jason.txt', target='bar.txt')
+    ctx(rule='cat ${SRC} > ${TGT}', source='foo.txt bar.txt', target='foobar.txt')
+
+"""
+    p = platform.platform()
+    if (re.search("Darwin", p)):
+        ctx.recurse('mac')
+    else:
+        ctx.fatal("Platform %s not supported." % p)
+"""
