@@ -1,6 +1,1 @@
 This is the render client for blenderfarmers.
-
-To build project:
-waf mac
-waf windows
-waf linux

@@ -19,8 +19,7 @@ from setuptools import setup
 APP = ['../shared/BlenderFarmers.py']
 DATA_FILES = ['../shared/resources']
 OPTIONS = {
-    'argv_emulation': True,
-    'iconfile' : 'BlenderFarmers.icns'
+    'argv_emulation': True
 }
 
 setup(
