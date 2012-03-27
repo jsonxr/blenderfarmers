@@ -37,9 +37,9 @@ if echo $PATH_UNEXPAND | grep Python27
 then
     echo_ok "Already added C:/Python27 to PATH in Windows environment."
 else    
-    setx PATH "$PATH_UNEXPAND;C:\Python27" /M
+    setx PATH "$PATH_UNEXPAND;C:\Python27;C:\Python27\Scripts" /M
     echo_err ""
-    echo_err "Added c:\Python to PATH in Windows environment."
+    echo_err "Added c:\Python27 to PATH in Windows environment."
     echo_err "Restart cygwin environment as administrator and run this script again..."
     echo_err ""
     echo_err "Press any key..."
@@ -129,6 +129,28 @@ else
     echo "python c:/cygwin/usr/local/bin/waf.py \$*" > /usr/local/bin/waf
     echo_ok "Installed waf"
 fi
+
+if [  -f /cygdrive/c/Python27/Lib/site-packages/py2exe/__init__.py ]
+then
+    echo_ok "Already installed py2exe"
+else
+    if [ -f ~/tmp/py2exe-0.6.9.win32-py2.7.exe ]
+    then
+        echo_ok "Already downloaded ~/tmp/py2exe-0.6.9.win32-py2.7.exe"
+    else
+        wget -O ~/tmp/py2exe-0.6.9.win32-py2.7.exe http://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.7.exe
+    fi
+    
+    pushd ~/tmp
+    chmod 755 py2exe-0.6.9.win32-py2.7.exe
+    cmd /C py2exe-0.6.9.win32-py2.7.exe
+    echo_ok "Installed py2exe"
+    popd
+    
+#    echo_err "Press any key after py2exe is installed..."
+#    read
+fi
+
 
 # Clean up after ourselves
 rm -rf ~/tmp
