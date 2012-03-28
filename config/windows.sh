@@ -21,7 +21,7 @@ function echo_warn {
     echo -e '\033[1;33m'$*'\033[0m'
 }
 
-echo_ok "Configuring windows development environment..."
+echo_ok "Configuring windows development environment2..."
 
 mkdir -p ~/tmp
 git config --add color.ui auto
@@ -93,6 +93,8 @@ fi
 # Intall setuptools
 # http://pypi.python.org/pypi/setuptools
 ########################################
+
+wget -O ~/tmp/setuptools-0.6c11.win32-py2.7.exe http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11.win32-py2.7.exe
 if [ -f /cygdrive/c/Python27/Scripts/easy_install.exe ]
 then
     echo_ok "Already installed setuptools"
@@ -130,6 +132,10 @@ else
     echo_ok "Installed waf"
 fi
 
+########################################
+# Intall py2exe
+# http://www.py2exe.org
+########################################
 if [  -f /cygdrive/c/Python27/Lib/site-packages/py2exe/__init__.py ]
 then
     echo_ok "Already installed py2exe"
@@ -151,6 +157,25 @@ else
 #    read
 fi
 
+########################################
+# Microsoft DLL
+########################################
+cp /cygdrive/c/Python27/msvcr90.dll /cygdrive/c/Python27/DLLs
+cp /cygdrive/c/Python27/Microsoft.VC90.CRT.manifest /cygdrive/c/Python27/DLLs
+
+rm /cygdrive/c/Python27/DLLs/Microsoft.VC90.CRT.manifest
+rm /cygdrive/c/Python27/DLLs/msvcr90.dll
+
+
+# Download the MSV dll to bundle python py2exe
+#wget -O ~/tmp/vcredist_x86.exe "http://download.microsoft.com/download/1/1/1/1116b75a-9ec3-481a-a3c8-1777b5381140/vcredist_x86.exe"
+#chmod 755 ~/tmp/vcredist_x86.exe
+#pushd ~/tmp
+#cmd /C vcredist_x86.exe /qb!
+#popd ~/tmp
+
+
+#http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=29
 
 # Clean up after ourselves
-rm -rf ~/tmp
+#rm -rf ~/tmp
