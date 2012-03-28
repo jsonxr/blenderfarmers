@@ -94,7 +94,10 @@ fi
 # http://pypi.python.org/pypi/setuptools
 ########################################
 
+# Need to use this instead of what I wrote on 3 lines below
 wget -O ~/tmp/setuptools-0.6c11.win32-py2.7.exe http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11.win32-py2.7.exe
+exit
+
 if [ -f /cygdrive/c/Python27/Scripts/easy_install.exe ]
 then
     echo_ok "Already installed setuptools"
@@ -160,11 +163,6 @@ fi
 ########################################
 # Microsoft DLL
 ########################################
-cp /cygdrive/c/Python27/msvcr90.dll /cygdrive/c/Python27/DLLs
-cp /cygdrive/c/Python27/Microsoft.VC90.CRT.manifest /cygdrive/c/Python27/DLLs
-
-rm /cygdrive/c/Python27/DLLs/Microsoft.VC90.CRT.manifest
-rm /cygdrive/c/Python27/DLLs/msvcr90.dll
 
 
 # Download the MSV dll to bundle python py2exe
