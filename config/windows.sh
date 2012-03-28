@@ -37,7 +37,7 @@ if echo $PATH_UNEXPAND | grep Python27
 then
     echo_ok "Already added C:/Python27 to PATH in Windows environment."
 else    
-    setx PATH "$PATH_UNEXPAND;C:\Python27" /M
+    setx PATH "$PATH_UNEXPAND;C:\Python27;C:\Python27\Scripts" /M
     echo_err ""
     echo_err "Added c:\Python to PATH in Windows environment."
     echo_err "Restart cygwin environment as administrator and run this script again..."
@@ -129,6 +129,9 @@ else
     echo "python c:/cygwin/usr/local/bin/waf.py \$*" > /usr/local/bin/waf
     echo_ok "Installed waf"
 fi
+
+
+wget -O ~/tmp/py2exe-0.6.9.zip http://downloads.sourceforge.net/project/py2exe/py2exe/0.6.9/py2exe-0.6.9.zip
 
 # Clean up after ourselves
 rm -rf ~/tmp

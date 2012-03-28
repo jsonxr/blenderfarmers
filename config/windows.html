@@ -1,0 +1,46 @@
+<html>
+<head>
+    <style>
+    body { width:40em;}
+    </style>
+</head>
+<body>
+<h1>Windows</h1>
+<p>This document describes how to get your development environment configured.  Actions that start with "Windows:" are actions or commands that are performed in the Windows environment.  Actions that begin with "Cygwin" are actions that should be performed in the cygwin shell.</p>
+<p>
+    This document is written from the perspective of the user assuming all defaults.  If you choose to use other locations than the defaults described in this document, you are on your own.
+    <ul>
+        <li>C:\Python27 - Default installation of python 2.7</li>
+        <li>C:\Cygwin - Default installation of Cygwin</li>
+        <li>C:\blenderfarmers - Default location of blenderfarmers code</li>
+    </ul>
+</p>
+
+<ol>
+<h2><li>Windows: Install Cygwin</li></h2>
+<a href="http://www.cygwin.com">http://www.cygwin.com</a>
+<p> Run: <a href="http://cygwin.com/setup.exe">Cygwin setup.exe</a>, install in the c:\cygwin directory, and select the following additional packages:
+
+<ul>
+    <li>Web/wget</li>
+    <li>Devel/git</li>
+    <li>Net/openssh</li>
+    <li>Net/curl</li>
+    <li>Archive/zip</li>
+    <li>Archive/unzip</li>
+</ul>
+
+<h2><li>Windows: Run Cygwin as Administrator</li></h2>
+The configuration script needs to run as administrator to make changes to your computer.  Shift-Right-click the cygwin application and select "Run as Administrator".  When developing, you do not need to run as administrator.
+
+<pre>
+cd /cygdrive/c
+git clone git@github.com:jasonxrowland/blenderfarmers.git
+ln -s /cygdrive/c/blenderfarmers ~/blenderfarmers
+~/blenderfarmers/config/windows.sh
+</pre>
+
+
+
+</body>
+</html>
