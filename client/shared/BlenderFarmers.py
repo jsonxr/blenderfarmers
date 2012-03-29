@@ -1,8 +1,8 @@
-#!python
+#!/usr/bin/env python
 
 import wx
 from wx import xrc
-import pkg_resources
+#import pkg_resources
 
 #---------------------------------------------------------------------------
 
@@ -16,9 +16,11 @@ class App(wx.App):
         self.Bind(wx.EVT_ACTIVATE_APP, self.OnActivate)
 
     def OnInit(self):
-        my_data = pkg_resources.resource_string(__name__, "resources/gui.xrc")
-        self.res = xrc.EmptyXmlResource()
-        self.res.LoadFromString(my_data)
+        #my_data = pkg_resources.resource_string(__name__, "resources/gui.xrc")
+        #self.res = xrc.EmptyXmlResource()
+        #self.res.LoadFromString(my_data)
+
+        self.res = xrc.XmlResource("resources/gui.xrc")
         self.InitFrame()
         self.InitMenu()
         self.frame.Show()
