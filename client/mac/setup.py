@@ -19,12 +19,13 @@ from setuptools import setup
 APP = ['../shared/BlenderFarmers.py']
 DATA_FILES = ['../shared/resources']
 OPTIONS = {
-    'argv_emulation': True
+    'iconfile':'BlenderFarmers.icns',
+    'plist': {'CFBundleShortVersionString':'0.1.0',},
+    'argv_emulation': False
 }
-
 setup(
     app=APP,
     data_files=DATA_FILES,
     options={'py2app': OPTIONS},
-    setup_requires=['py2app'],
+    setup_requires=['py2app']
 )
