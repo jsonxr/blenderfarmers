@@ -3,6 +3,7 @@
 import wx
 from wx import xrc
 import os
+import sys
 #import pkg_resources
 
 #---------------------------------------------------------------------------
@@ -22,8 +23,14 @@ class App(wx.App):
         #my_data = pkg_resources.resource_string(__name__, "resources/gui.xrc")
         #self.res = xrc.EmptyXmlResource()
         #self.res.LoadFromString(my_data)
+        print "name: " + __name__
+        print "file: " + __file__
+        
+        if '_MEIPASS2' in os.environ:
+            gui = os.path.join(os.environ["_MEIPASS2"], "resources/gui.xrc")
+        else:
+            gui = 'resources/gui.xrc'
 
-        gui = os.path.join(os.environ["_MEIPASS2"], "resources/gui.xrc")
         self.res = xrc.XmlResource(gui)
         self.InitFrame()
         self.InitMenu()
