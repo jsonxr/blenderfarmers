@@ -21,6 +21,19 @@ function echo_warn {
     echo -e '\033[1;33m'$*'\033[0m'
 }
 
+function download()
+{
+    local filename="$(basename "$1")"
+
+    if [ -f ~/tmp/$filename ]
+    then
+        echo_ok "Already downloaded $filename"
+    else
+        wget -O ~/tmp/$filename --no-check-certificate $1
+        chmod 755 ~/tmp/$filename
+    fi
+}
+
 echo_ok "Configuring windows development environment2..."
 
 mkdir -p ~/tmp
@@ -55,12 +68,7 @@ if [ -f /cygdrive/c/Python27/python.exe ]
 then
     echo_ok "Already installed Python27"
 else
-    if [ -f ~/tmp/python-2.7.2.msi ]
-    then
-        echo_ok "Already downloaded ~/tmp/python-2.7.2.msi"
-    else
-        wget http://www.python.org/ftp/python/2.7.2/python-2.7.2.msi -O ~/tmp/python-2.7.2.msi
-    fi
+    download "http://www.python.org/ftp/python/2.7.2/python-2.7.2.msi"
     
     pushd /cygdrive/c/cygwin/home/$USER/tmp
     msiexec /i python-2.7.2.msi /passive
@@ -76,13 +84,8 @@ if [ -f /cygdrive/c/Python27/Lib/site-packages/wx-2.9.3-msw/wx/__init__.py ]
 then
     echo_ok "Already installed wxPython2.9"
 else
-    if [ -f ~/tmp/wxPython2.9-win32-2.9.3.1-py27.exe ]
-    then    
-        echo_ok "Already downloaded ~/tmp/wxPython2.9-win32-2.9.3.1-py27.exe"
-    else
-        wget -O ~/tmp/wxPython2.9-win32-2.9.3.1-py27.exe http://downloads.sourceforge.net/project/wxpython/wxPython/2.9.3.1/wxPython2.9-win32-2.9.3.1-py27.exe
-        chmod 755 ~/tmp/wxPython2.9-win32-2.9.3.1-py27.exe
-    fi
+    download "http://downloads.sourceforge.net/project/wxpython/wxPython/2.9.3.1/wxPython2.9-win32-2.9.3.1-py27.exe"
+
     pushd ~/tmp
     cmd /C wxPython2.9-win32-2.9.3.1-py27.exe /SILENT
     echo_ok "Installed wxPython2.9"
@@ -95,25 +98,19 @@ fi
 ########################################
 
 # Need to use this instead of what I wrote on 3 lines below
-wget -O ~/tmp/setuptools-0.6c11.win32-py2.7.exe http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11.win32-py2.7.exe
-exit
-
 if [ -f /cygdrive/c/Python27/Scripts/easy_install.exe ]
 then
     echo_ok "Already installed setuptools"
 else
-    if [ -f ~/tmp/ez_setup.py ]
-    then
-        echo_ok "Already downloaded ~/tmp/ez_setup.py"
-    else
-        wget -O ~/tmp/ez_setup.py http://peak.telecommunity.com/dist/ez_setup.py
-    fi
+    download "http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11.win32-py2.7.exe"
     
     pushd ~/tmp
-    python ez_setup.py
-    echo_ok "Installed setuptools"
+    cmd /C  setuptools-0.6c11.win32-py2.7.exe
     popd
+    
+    echo_ok "Installed setuptools"
 fi
+
 
 ########################################
 # Intall WAF
@@ -123,12 +120,7 @@ if [ -f /usr/local/bin/waf ]
 then
     echo_ok "Already installed waf"
 else
-    if [ -f ~/tmp/]
-    then
-        "Already downloaded waf-1.6.11"
-    else
-        wget -O ~/tmp/waf-1.6.11 http://waf.googlecode.com/files/waf-1.6.11
-    fi
+    download "http://waf.googlecode.com/files/waf-1.6.11"
     
     cp ~/tmp/waf-1.6.11 /usr/local/bin/waf.py
     echo "python c:/cygwin/usr/local/bin/waf.py \$*" > /usr/local/bin/waf
@@ -139,16 +131,12 @@ fi
 # Intall py2exe
 # http://www.py2exe.org
 ########################################
+
 if [  -f /cygdrive/c/Python27/Lib/site-packages/py2exe/__init__.py ]
 then
     echo_ok "Already installed py2exe"
 else
-    if [ -f ~/tmp/py2exe-0.6.9.win32-py2.7.exe ]
-    then
-        echo_ok "Already downloaded ~/tmp/py2exe-0.6.9.win32-py2.7.exe"
-    else
-        wget -O ~/tmp/py2exe-0.6.9.win32-py2.7.exe http://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.7.exe
-    fi
+    download "http://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.7.exe"
     
     pushd ~/tmp
     chmod 755 py2exe-0.6.9.win32-py2.7.exe
@@ -159,6 +147,40 @@ else
 #    echo_err "Press any key after py2exe is installed..."
 #    read
 fi
+
+########################################
+# Intall pyInstaller
+# http://www.py2exe.org
+########################################
+if [  -f /cygdrive/c/pyinstaller-1.5.1/pyinstaller.py ]
+then
+    echo_ok "Already installed pyInstaller"
+else
+    download "https://github.com/downloads/pyinstaller/pyinstaller/pyinstaller-1.5.1.tar.bz2"
+    
+    pushd /cygdrive/c
+    tar -xjvf ~/tmp/pyinstaller-1.5.1.tar.bz2
+    popd
+    
+    echo_ok "Installed pyInstaller"
+fi
+
+
+########################################
+# pywin32
+# http://sourceforge.net/projects/pywin32/files/
+########################################
+if [ -f /cygdrive/c/Python27/Lib/site-packages/win32com/__init__.py ]
+then
+    echo_ok "Already installed pywin32"
+else
+    download "http://downloads.sourceforge.net/project/pywin32/pywin32/Build%20217/pywin32-217.win32-py2.7.exe"
+    
+    pushd ~/tmp
+    cmd /C pywin32-217.win32-py2.7.exe
+    popd
+fi
+
 
 ########################################
 # Microsoft DLL

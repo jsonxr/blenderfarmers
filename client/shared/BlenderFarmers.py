@@ -2,9 +2,12 @@
 
 import wx
 from wx import xrc
+import os
 #import pkg_resources
 
 #---------------------------------------------------------------------------
+
+
 
 class App(wx.App):
     
@@ -20,7 +23,8 @@ class App(wx.App):
         #self.res = xrc.EmptyXmlResource()
         #self.res.LoadFromString(my_data)
 
-        self.res = xrc.XmlResource("resources/gui.xrc")
+        gui = os.path.join(os.environ["_MEIPASS2"], "resources/gui.xrc")
+        self.res = xrc.XmlResource(gui)
         self.InitFrame()
         self.InitMenu()
         self.frame.Show()
