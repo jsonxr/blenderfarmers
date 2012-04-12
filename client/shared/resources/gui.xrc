@@ -1,211 +1,211 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
-	<object class="wxFrame" name="mainFrame">
-		<style>wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL</style>
-		<size>481,288</size>
-		<title>BlenderFarmers</title>
-		<aui_managed>0</aui_managed>
-		<object class="wxPanel" name="panel">
-			<style>wxTAB_TRAVERSAL</style>
-			<object class="wxBoxSizer">
-				<orient>wxVERTICAL</orient>
-				<object class="sizeritem">
-					<option>1</option>
-					<flag>wxALL|wxEXPAND</flag>
-					<border>15</border>
-					<object class="wxFlexGridSizer">
-						<rows>0</rows>
-						<cols>2</cols>
-						<vgap>5</vgap>
-						<hgap>5</hgap>
-						<growablecols>1</growablecols>
-						<growablerows></growablerows>
-						<object class="sizeritem">
-							<option>0</option>
-							<flag>wxALIGN_RIGHT|wxALL</flag>
-							<border>5</border>
-							<object class="wxStaticText" name="label1">
-								<style>wxALIGN_RIGHT</style>
-								<label>Url:</label>
-								<wrap>-1</wrap>
-							</object>
-						</object>
-						<object class="sizeritem">
-							<option>1</option>
-							<flag>wxALL|wxEXPAND</flag>
-							<border>0</border>
-							<object class="wxTextCtrl" name="txtUrl">
-								<value>http://www.blenderfarmers.com/jasonxrowland</value>
-								<maxlength>255</maxlength>
-							</object>
-						</object>
-						<object class="sizeritem">
-							<option>0</option>
-							<flag>wxALIGN_RIGHT|wxALL</flag>
-							<border>5</border>
-							<object class="wxStaticText" name="m_staticText13">
-								<style>wxALIGN_RIGHT</style>
-								<label>Client:</label>
-								<wrap>-1</wrap>
-							</object>
-						</object>
-						<object class="sizeritem">
-							<option>0</option>
-							<flag>wxALL</flag>
-							<border>5</border>
-							<object class="wxStaticText" name="lblClient">
-								<label>MyLabel</label>
-								<wrap>-1</wrap>
-							</object>
-						</object>
-						<object class="sizeritem">
-							<option>0</option>
-							<flag>wxALIGN_RIGHT|wxALL</flag>
-							<border>5</border>
-							<object class="wxStaticText" name="m_staticText5">
-								<style>wxALIGN_RIGHT</style>
-								<label>Platform:</label>
-								<wrap>-1</wrap>
-							</object>
-						</object>
-						<object class="sizeritem">
-							<option>0</option>
-							<flag>wxALL</flag>
-							<border>5</border>
-							<object class="wxStaticText" name="lblPlatform">
-								<font>
-									<family>default</family>
-									<style>normal</style>
-									<weight>bold</weight>
-									<underlined>0</underlined>
-								</font>
-								<label>MacOSX 10.7</label>
-								<wrap>-1</wrap>
-							</object>
-						</object>
-						<object class="sizeritem">
-							<option>0</option>
-							<flag>wxALIGN_RIGHT|wxALL</flag>
-							<border>5</border>
-							<object class="wxStaticText" name="m_staticText7">
-								<label>Background:</label>
-								<wrap>-1</wrap>
-							</object>
-						</object>
-						<object class="sizeritem">
-							<option>0</option>
-							<flag>wxALL</flag>
-							<border>5</border>
-							<object class="wxStaticText" name="lblRender">
-								<font>
-									<family>default</family>
-									<style>normal</style>
-									<weight>bold</weight>
-									<underlined>0</underlined>
-								</font>
-								<label>Only when I&apos;m not using computer.</label>
-								<wrap>-1</wrap>
-							</object>
-						</object>
-						<object class="sizeritem">
-							<option>0</option>
-							<flag>wxALIGN_RIGHT|wxALL</flag>
-							<border>5</border>
-							<object class="wxStaticText" name="m_staticText11">
-								<label>Blender Versions:</label>
-								<wrap>-1</wrap>
-							</object>
-						</object>
-						<object class="sizeritem">
-							<option>0</option>
-							<flag>wxALL</flag>
-							<border>5</border>
-							<object class="wxStaticText" name="lblBlenderVersions">
-								<label>2.49a, 2.62</label>
-								<wrap>-1</wrap>
-							</object>
-						</object>
-						<object class="spacer">
-							<option>1</option>
-							<flag>wxEXPAND</flag>
-							<border>5</border>
-							<size>0,0</size>
-						</object>
-						<object class="sizeritem">
-							<option>1</option>
-							<flag>wxEXPAND</flag>
-							<border>5</border>
-							<object class="wxBoxSizer">
-								<orient>wxHORIZONTAL</orient>
-								<object class="sizeritem">
-									<option>0</option>
-									<flag>wxALL</flag>
-									<border>0</border>
-									<object class="wxStaticText" name="m_staticText15">
-										<fg>#000000</fg>
-										<label>BlenderFarmers is </label>
-										<wrap>-1</wrap>
-									</object>
-								</object>
-								<object class="sizeritem">
-									<option>0</option>
-									<flag>wxALL</flag>
-									<border>0</border>
-									<object class="wxStaticText" name="lblServiceRunning">
-										<fg>#ff0000</fg>
-										<font>
-											<family>default</family>
-											<style>normal</style>
-											<weight>bold</weight>
-											<underlined>0</underlined>
-										</font>
-										<label>not running</label>
-										<wrap>-1</wrap>
-									</object>
-								</object>
-							</object>
-						</object>
-						<object class="spacer">
-							<option>1</option>
-							<flag>wxEXPAND</flag>
-							<border>5</border>
-							<size>0,0</size>
-						</object>
-						<object class="sizeritem">
-							<option>0</option>
-							<flag></flag>
-							<border>0</border>
-							<object class="wxButton" name="btnBackground">
-								<label>Start BlenderFarmers</label>
-								<default>0</default>
-							</object>
-						</object>
-					</object>
-				</object>
-			</object>
-		</object>
-	</object>
-	<object class="wxMenuBar" name="menuBar">
-		<label></label>
-		<object class="wxMenu" name="OperationMenu">
-			<label>Operations</label>
-			<object class="wxMenuItem" name="AddMenuItem">
-				<label>_Add</label>
-				<help>Add second arg to the first arg.</help>
-			</object>
-			<object class="wxMenuItem" name="SubtractMenuItem">
-				<label>_Subtract</label>
-				<help>Subtract second arg from the first arg.</help>
-			</object>
-			<object class="separator" />
-			<object class="wxMenuItem" name="MultiplyMenuItem">
-				<label>_Multiply</label>
-				<help>Multiply first arg by second arg</help>
-			</object>
-			<object class="wxMenuItem" name="DivideMenuItem">
-				<label>_Divide</label>
-				<help>Divide first arg by second arg.</help>
-			</object>
-		</object>
-	</object>
+    <object class="wxFrame" name="mainFrame">
+        <style>wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL</style>
+        <size>481,288</size>
+        <title>BlenderFarmers</title>
+        <aui_managed>0</aui_managed>
+        <object class="wxPanel" name="panel">
+            <style>wxTAB_TRAVERSAL</style>
+            <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                    <option>1</option>
+                    <flag>wxALL|wxEXPAND</flag>
+                    <border>15</border>
+                    <object class="wxFlexGridSizer">
+                        <rows>0</rows>
+                        <cols>2</cols>
+                        <vgap>5</vgap>
+                        <hgap>5</hgap>
+                        <growablecols>1</growablecols>
+                        <growablerows/>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxALIGN_RIGHT|wxALL</flag>
+                            <border>5</border>
+                            <object class="wxStaticText" name="label1">
+                                <style>wxALIGN_RIGHT</style>
+                                <label>Url:</label>
+                                <wrap>-1</wrap>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>1</option>
+                            <flag>wxALL|wxEXPAND</flag>
+                            <border>0</border>
+                            <object class="wxTextCtrl" name="txtUrl">
+                                <value>http://www.blenderfarmers.com/jasonxrowland</value>
+                                <maxlength>255</maxlength>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxALIGN_RIGHT|wxALL</flag>
+                            <border>5</border>
+                            <object class="wxStaticText" name="m_staticText13">
+                                <style>wxALIGN_RIGHT</style>
+                                <label>Client:</label>
+                                <wrap>-1</wrap>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxALL</flag>
+                            <border>5</border>
+                            <object class="wxStaticText" name="lblClient">
+                                <label>MyLabel</label>
+                                <wrap>-1</wrap>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxALIGN_RIGHT|wxALL</flag>
+                            <border>5</border>
+                            <object class="wxStaticText" name="m_staticText5">
+                                <style>wxALIGN_RIGHT</style>
+                                <label>Platform:</label>
+                                <wrap>-1</wrap>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxALL</flag>
+                            <border>5</border>
+                            <object class="wxStaticText" name="lblPlatform">
+                                <font>
+                                    <family>default</family>
+                                    <style>normal</style>
+                                    <weight>bold</weight>
+                                    <underlined>0</underlined>
+                                </font>
+                                <label>MacOSX 10.7</label>
+                                <wrap>-1</wrap>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxALIGN_RIGHT|wxALL</flag>
+                            <border>5</border>
+                            <object class="wxStaticText" name="m_staticText7">
+                                <label>Background:</label>
+                                <wrap>-1</wrap>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxALL</flag>
+                            <border>5</border>
+                            <object class="wxStaticText" name="lblRender">
+                                <font>
+                                    <family>default</family>
+                                    <style>normal</style>
+                                    <weight>bold</weight>
+                                    <underlined>0</underlined>
+                                </font>
+                                <label>Only when I'm not using computer.</label>
+                                <wrap>-1</wrap>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxALIGN_RIGHT|wxALL</flag>
+                            <border>5</border>
+                            <object class="wxStaticText" name="m_staticText11">
+                                <label>Blender Versions:</label>
+                                <wrap>-1</wrap>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag>wxALL</flag>
+                            <border>5</border>
+                            <object class="wxStaticText" name="lblBlenderVersions">
+                                <label>2.49a, 2.62</label>
+                                <wrap>-1</wrap>
+                            </object>
+                        </object>
+                        <object class="spacer">
+                            <option>1</option>
+                            <flag>wxEXPAND</flag>
+                            <border>5</border>
+                            <size>0,0</size>
+                        </object>
+                        <object class="sizeritem">
+                            <option>1</option>
+                            <flag>wxEXPAND</flag>
+                            <border>5</border>
+                            <object class="wxBoxSizer">
+                                <orient>wxHORIZONTAL</orient>
+                                <object class="sizeritem">
+                                    <option>0</option>
+                                    <flag>wxALL</flag>
+                                    <border>0</border>
+                                    <object class="wxStaticText" name="m_staticText15">
+                                        <fg>#000000</fg>
+                                        <label>BlenderFarmers is </label>
+                                        <wrap>-1</wrap>
+                                    </object>
+                                </object>
+                                <object class="sizeritem">
+                                    <option>0</option>
+                                    <flag>wxALL</flag>
+                                    <border>0</border>
+                                    <object class="wxStaticText" name="lblServiceRunning">
+                                        <fg>#ff0000</fg>
+                                        <font>
+                                            <family>default</family>
+                                            <style>normal</style>
+                                            <weight>bold</weight>
+                                            <underlined>0</underlined>
+                                        </font>
+                                        <label>not running</label>
+                                        <wrap>-1</wrap>
+                                    </object>
+                                </object>
+                            </object>
+                        </object>
+                        <object class="spacer">
+                            <option>1</option>
+                            <flag>wxEXPAND</flag>
+                            <border>5</border>
+                            <size>0,0</size>
+                        </object>
+                        <object class="sizeritem">
+                            <option>0</option>
+                            <flag/>
+                            <border>0</border>
+                            <object class="wxButton" name="btnBackground">
+                                <label>Start BlenderFarmers</label>
+                                <default>0</default>
+                            </object>
+                        </object>
+                    </object>
+                </object>
+            </object>
+        </object>
+    </object>
+    <object class="wxMenuBar" name="menuBar">
+        <label/>
+        <object class="wxMenu" name="OperationMenu">
+            <label>Operations</label>
+            <object class="wxMenuItem" name="AddMenuItem">
+                <label>_Add</label>
+                <help>Add second arg to the first arg.</help>
+            </object>
+            <object class="wxMenuItem" name="SubtractMenuItem">
+                <label>_Subtract</label>
+                <help>Subtract second arg from the first arg.</help>
+            </object>
+            <object class="separator"/>
+            <object class="wxMenuItem" name="MultiplyMenuItem">
+                <label>_Multiply</label>
+                <help>Multiply first arg by second arg</help>
+            </object>
+            <object class="wxMenuItem" name="DivideMenuItem">
+                <label>_Divide</label>
+                <help>Divide first arg by second arg.</help>
+            </object>
+        </object>
+    </object>
 </resource>
