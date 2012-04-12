@@ -3,7 +3,7 @@ a = Analysis([os.path.join(HOMEPATH,'support/_mountzlib.py'), os.path.join(HOMEP
              pathex=['C:\\pyinstaller-1.5.1'])
 
 a.datas += [('resources/gui.xrc', SPECPATH+'/../shared/resources/gui.xrc',  'DATA'),
-            ('blenderfarmers.ico', SPECPATH+'/blenderfarmers.ico',  'DATA')
+            ('resources/blenderfarmers.ico', SPECPATH+'/../shared/resources/blenderfarmers.ico',  'DATA'),
             ]
 
 pyz = PYZ(a.pure)
@@ -16,7 +16,7 @@ exe = EXE( pyz,
           debug=False,
           strip=False,
           upx=True,
-          icon=SPECPATH+"/blenderfarmers.ico",
+          icon=SPECPATH+"/../shared/resources/blenderfarmers.ico",
           console=False )
 
 app = BUNDLE(exe, name=os.path.join('dist', 'BlenderFarmers.app'))
