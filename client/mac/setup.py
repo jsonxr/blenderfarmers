@@ -20,8 +20,8 @@ APP = ['../shared/BlenderFarmers.py']
 DATA_FILES = ['../shared/resources']
 OPTIONS = {
     'iconfile':'BlenderFarmers.icns',
-    'plist': {'CFBundleShortVersionString':'0.1.0',},
-    'argv_emulation': False
+    'plist': 'Info.plist',
+    'argv_emulation': True
 }
 setup(
     app=APP,

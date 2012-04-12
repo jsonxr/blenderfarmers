@@ -1,6 +1,11 @@
 PACKAGEMAKER="/Applications/PackageMaker.app/Contents/MacOS/PackageMaker"
 
 # Create app from python
+
+# If you get some weird Tick error, uncomment this
+#export VERSIONER_PYTHON_PREFER_32_BIT=yes
+
+
 mkdir -p build
 mkdir -p dist
 
