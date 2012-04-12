@@ -3,8 +3,6 @@
 import wx
 from wx import xrc
 import os
-#import sys
-#import pkg_resources
 
 #---------------------------------------------------------------------------
 
@@ -19,27 +17,30 @@ class Application(wx.App):
         # process
         self.Bind(wx.EVT_ACTIVATE_APP, self.OnActivate)
 
-    def OnInit(self):
-        #my_data = pkg_resources.resource_string(__name__, "resources/gui.xrc")
-        #self.res = xrc.EmptyXmlResource()
-        #self.res.LoadFromString(my_data)
-        print "name: " + __name__
-        print "file: " + __file__
-        
+    def resourcePath(self, filename):
         if '_MEIPASS2' in os.environ:
-            gui = os.path.join(os.environ["_MEIPASS2"], "resources/gui.xrc")
+            path = os.path.join(os.environ["_MEIPASS2"], filename)
         else:
-            gui = 'resources/gui.xrc'
+            path = filename
+        return path
+
+    def OnInit(self):
+        gui = self.resourcePath('resources/gui.xrc')
 
         self.res = xrc.XmlResource(gui)
         self.InitFrame()
         self.InitMenu()
+        
         self.frame.Show()
         self.SetTopWindow(self.frame)
         return True
         
     def InitFrame(self):    
         self.frame = self.res.LoadFrame(None, 'mainFrame')
+        
+        favicon = wx.Icon(self.resourcePath('resources/blenderfarmers.ico'))
+        self.frame.SetIcon(favicon)
+        
         self.panel = xrc.XRCCTRL(self.frame, 'panel')
         self.txtUrl = xrc.XRCCTRL(self.panel, 'txtUrl')
         self.frame.Bind(wx.EVT_BUTTON, self.OnSubmit, id=xrc.XRCID('btnSubmit'))
