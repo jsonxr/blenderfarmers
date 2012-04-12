@@ -1,6 +1,9 @@
+PACKAGEMAKER="/Applications/PackageMaker.app/Contents/MacOS/PackageMaker"
+
 # Create app from python
-mkdir build
-mkdir dist
+mkdir -p build
+mkdir -p dist
+
 
 ################################################################################
 # Create the build/app/BlenderFarmers.app
@@ -10,7 +13,7 @@ python setup.py py2app --bdist-base build --dist-dir dist
 ################################################################################
 # Create the package
 ################################################################################
-packagemaker --id com.blenderfarmers.BlenderFarmers --doc BlenderFarmers.pmdoc --out dist/BlenderFarmers.pkg
+$PACKAGEMAKER --id com.blenderfarmers.BlenderFarmers --doc BlenderFarmers.pmdoc --out dist/BlenderFarmers.pkg
 
 ################################################################################
 # Create the dmg file

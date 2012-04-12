@@ -19,16 +19,23 @@
 <ol>
 <h2><li>Windows: Install Cygwin</li></h2>
 <a href="http://www.cygwin.com">http://www.cygwin.com</a>
-<p> Run: <a href="http://cygwin.com/setup.exe">Cygwin setup.exe</a>, install in the c:\cygwin directory, and select the following additional packages:
+<p> Download: <a href="http://cygwin.com/setup.exe">Cygwin setup.exe</a>, save to the c:\cygwin_install directory.
+    
+Open command prompt, make sure you open it with Run as Administrator and run the following:
+<pre>
+cd \cygwin_install
+setup.exe --quiet-mode --disable-buggy-antivirus --site http://cygwin.mirrorcatalogs.com --packages wget,git,openssh,curl,zip,vim
 
-<ul>
-    <li>Web/wget</li>
-    <li>Devel/git</li>
-    <li>Net/openssh</li>
-    <li>Net/curl</li>
-    <li>Archive/zip</li>
-    <li>Archive/unzip</li>
-</ul>
+echo #!/usr/bin/bash>configure.sh
+echo cd /cygdrive/c/ >> configure.sh
+echo git clone git://github.com/jasonxrowland/blenderfarmers.git>>configure.sh
+echo /cygdrive/c/blenderfarmers/config/windows.sh >>configure.sh
+
+c:
+cd \cygwin\bin
+bash --login -i "/cygdrive/c/cygwin_install/configure.sh"
+</pre>
+Please note that particularly on the echo commands, the spaces matter! Windows writes \r
 
 <h2><li>Windows: Run Cygwin as Administrator</li></h2>
 The configuration script needs to run as administrator to make changes to your computer.  Shift-Right-click the cygwin application and select "Run as Administrator".  When developing, you do not need to run as administrator.
