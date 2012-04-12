@@ -15,12 +15,12 @@ args = parser.parse_args()
 
 
 
-#if (args.background):
-while True:
+if (args.background):
+    #while True:
     now = datetime.datetime.now()
     print str(now)
     sys.stdout.flush()
     time.sleep(1)
-#else:
-#    app = application.Application()
-#    app.MainLoop()
+else:
+    app = application.Application()
+    app.MainLoop()
