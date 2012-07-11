@@ -1,0 +1,14 @@
+body {
+    background-color:black;
+    color: white;
+}
+
+.center {
+    text-align: center;
+    margin: 0px auto;
+}
+
+.logo {
+    font-family: 'Passion One', cursive;
+    font-size: 4em;
+}
