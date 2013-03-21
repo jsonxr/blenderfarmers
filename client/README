@@ -1,1 +1,14 @@
 This is the render client for blenderfarmers.
+
+Detecting battery power or AC
+
+Mac
+http://code.google.com/p/munki/issues/detail?id=109
+
+Windows?
+http://stackoverflow.com/questions/6153860/in-python-how-can-i-detect-whether-the-computer-is-on-battery-power
+
+Linux/Ubuntu?
+https://github.com/jvoisin/tidybattery
+http://www.masnun.me/2010/09/01/python-script-to-monitor-laptop-battery-charge-ubuntulinux-mint.html
+

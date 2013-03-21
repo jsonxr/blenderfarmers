@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource>
+    <object class="wxFrame" name="mainFrame">
+        <title>My Frame</title>
+        <flag>wxALL|wxGROW</flag>
+        <object class="wxPanel" name="panel">
+            <object class="wxBoxSizer">
+                <object class="sizeritem"> 
+            <object class="wxFlexGridSizer">
+                <cols>3</cols>
+                <vgap>5</vgap>
+                <hgap>5</hgap>
+                <object class="sizeritem">
+                    <style>wxALIGN_RIGHT</style>
+                    <object class="wxStaticText" name="label1">
+                        <style>wxALIGN_RIGHT</style>
+                        <label>Url:</label>
+                    </object>
+                    <flag>wxALIGN_RIGHT</flag>
+                </object>
+                <object class="sizeritem">
+                    <object class="wxTextCtrl" name="txtUrl"/>
+                </object>
+                <object class="spacer">
+                    <size>0,0</size>
+                </object>
+                
+                <object class="sizeritem">
+                    <object class="wxStaticText" name="label2">
+                        <label>Last name:</label>
+                    </object>
+                </object>
+                <object class="sizeritem">
+                    <object class="wxTextCtrl" name="text2"/>
+                </object>
+                <object class="spacer">
+                    <size>0,0</size>
+                </object>
+                
+                <object class="spacer">
+                    <size>0,0</size>
+                </object>
+                <object class="sizeritem">
+                    <object class="wxButton" name="btnSubmit">
+                        <label>Submit</label>
+                    </object>
+                </object>
+                <object class="spacer">
+                    <size>0,0</size>
+                </object>
+            </object>
+            
+                    <flag>wxALL|wxGROW</flag>
+                    <border>15</border>
+                </object>
+            </object>
+        </object>
+    </object>
+    <object class="wxMenuBar" name="menuBar">
+        <object class="wxMenu" name="OperationMenu">
+            <label>Operations</label>
+            <object class="wxMenuItem" name="AddMenuItem">
+                <label>&amp;Add</label>
+                <accel>Ctrl-A</accel>
+                <help>Add second arg to the first arg.</help>
+            </object>
+            <object class="wxMenuItem" name="SubtractMenuItem">
+                <label>&amp;Subtract</label>
+                <accel>Ctrl-S</accel>
+                <help>Subtract second arg from the first arg.</help>
+            </object>
+            <object class="separator"/>
+            <object class="wxMenuItem" name="MultiplyMenuItem">
+                <label>&amp;Multiply</label>
+                <accel>Ctrl-M</accel>
+                <help>Multiply first arg by second arg</help>
+            </object>
+            <object class="wxMenuItem" name="DivideMenuItem">
+                <label>&amp;Divide</label>
+                <accel>Ctrl-D</accel>
+                <help>Divide first arg by second arg.</help>
+            </object>
+        </object>
+    </object>
+</resource>
